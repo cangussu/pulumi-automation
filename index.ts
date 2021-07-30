@@ -1,8 +1,5 @@
 #!/usr/bin/env node
-import {
-    LocalWorkspace,
-    StackAlreadyExistsError,
-} from "@pulumi/pulumi/automation";
+import {LocalWorkspace} from "@pulumi/pulumi/automation";
 
 import { createResources } from "@cangussu/pulumi-resource-generator";
 
@@ -14,8 +11,7 @@ const createStack = async (projectName: string, stackName: string) => {
             program: createResources,
         });
 
-        // await stack.workspace.installPlugin("kubernetes", "v3.5.1");
-        await stack.setConfig("chatpay:region", { value: "us-central1" });
+        await stack.setConfig("myoption:region", { value: "us-central1" });
         const prevRes = await stack.preview({ onOutput: console.info });
         return prevRes;
     } catch (e) {
@@ -25,7 +21,7 @@ const createStack = async (projectName: string, stackName: string) => {
 };
 
 const run = async () => {
-    const stack = await createStack("dev.chatpay.com.br", "automation-sample");
+    const stack = await createStack("pulumi-test", "automation-sample");
 };
 
 run();

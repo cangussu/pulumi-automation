@@ -4,7 +4,8 @@
     "description": "Inline automation program",
     "author": "cangussu",
     "dependencies": {
-      "@pulumi/pulumi": "3.9.0"
+      "@pulumi/pulumi": "3.9.0",
+      "@cangussu/pulumi-resource-generator": "0.0.2"
     },
     "resolutions": {
       "@pulumi/pulumi": "3.9.0"
